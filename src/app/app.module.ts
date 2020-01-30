@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { WritePostComponent } from './components/write-post/write-post.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { PostCardComponent } from './components/post-card/post-card.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
