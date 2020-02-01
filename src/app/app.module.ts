@@ -7,6 +7,9 @@ import { WritePostComponent } from './components/write-post/write-post.component
 import { PostCardComponent } from './components/post-card/post-card.component';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
