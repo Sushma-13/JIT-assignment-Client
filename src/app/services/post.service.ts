@@ -19,8 +19,8 @@ export class PostService {
         catchError(this.errorHandler)
       );
   }
-  createPost(_post: Post, id: String): Observable<Post[]> {
-    return this.http.post<Post[]>(this._postsAPIUrl + id, _post)
+  createPost(_post: Post): Observable<Post[]> {
+    return this.http.post<Post[]>(this._postsAPIUrl, _post)
       .pipe(
         catchError(this.errorHandler)
       );

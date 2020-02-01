@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'write-post',
@@ -8,16 +10,20 @@ import { NgForm } from '@angular/forms';
 })
 export class WritePostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _postService: PostService) { }
 
   ngOnInit() {
   }
 
-  createPost(form:NgForm){
-    if(form.value.postTxt!=null && form.value.postTxt!=""){
-      console.log(form.value.postTxt);
-    }
-    
+  errorMessage: String;
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    const post = new Post(1, form.value.text, Date(), 0);
+    this._postService.createPost(post)
+      .subscribe(data => {
+        console.log(data);
+      }, err => this.errorMessage = err);
   }
 
 }

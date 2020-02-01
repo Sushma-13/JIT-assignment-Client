@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 
 @Component({
@@ -8,28 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCardComponent implements OnInit {
 
-  constructor() { }
-  allpost = [{
-    id: 1,
-    text: "post1",
-    datetime: Date(),
-    upvotes: 2
-  },
-  {
-    id: 2,
-    text: "post2",
-    datetime: Date(),
-    upvotes: 2
-  },
-  {
-    id: 3,
-    text: "post3",
-    datetime: Date(),
-    upvotes: 2
-  }];
+  allpost;
+  constructor(private _postService: PostService) { }
+  
 
 
   ngOnInit() {
+    this._postService.getPosts().subscribe(posts=>this.allpost=posts);
+    console.log(this.allpost);
   }
 
 }
