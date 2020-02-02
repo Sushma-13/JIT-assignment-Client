@@ -10,23 +10,27 @@ import { Post } from 'src/app/models/post.model';
 })
 export class PostCardComponent implements OnInit {
 
-  allpost:Post[];
+  allpost: Post[];
   constructor(private _postService: PostService) { }
-  
+
 
 
   ngOnInit() {
-    this._postService.getPosts().subscribe(posts=>{this.allpost=posts;
-      console.log("This is allpost from components")
-      console.log(this.allpost);
+    this._postService.getPosts().subscribe(posts => {
+    this.allpost = posts;
+      // console.log("This is allpost from components")
+      // console.log(this.allpost);
     });
-    
+
   }
 
-  updateUpvotes(index:number){
-    let post:Post=this.allpost[index];
-    post.upvotes=post.upvotes+1;
-    this._postService.updateUpvotes(post,post._id);
+  updateUpvotes(index: number) {
+    let postToUpdate: Post = this.allpost[index];
+    postToUpdate.upvotes = postToUpdate.upvotes + 1;
+    //console.log(postToUpdate);
+    this._postService.updateUpvotes(postToUpdate, postToUpdate._id)
+      .subscribe(res => { console.log("Updated"); });
+
   }
 
 }

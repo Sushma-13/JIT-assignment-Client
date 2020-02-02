@@ -1,4 +1,4 @@
-<div class="card mb-3 mx-auto" *ngFor="let post of allpost">
+<div class="card mb-3 mx-auto" *ngFor="let post of allpost;let i = index">
     <div class="card-body">
         <p class="card-text">{{post.text}}</p>
 
@@ -6,7 +6,7 @@
 
         <span style="float: right;">
             <small class="text-muted">upvote {{post.upvotes}}</small>
-            <i class="fa fa-arrow-up ml-2"></i>  
+            <i class="fa fa-arrow-up ml-2" (click)="updateUpvotes(i)"></i>  
         </span>
     </div>
 </div>
