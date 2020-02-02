@@ -18,11 +18,15 @@ export class WritePostComponent implements OnInit {
   errorMessage: String;
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    const post = new Post(1, form.value.text, Date(), 0);
+    //console.log(form.value);
+    const post: Post = {
+      text: form.value.text,
+      datetime: Date(),
+      upvotes: 0
+    };
     this._postService.createPost(post)
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
       }, err => this.errorMessage = err);
   }
 
