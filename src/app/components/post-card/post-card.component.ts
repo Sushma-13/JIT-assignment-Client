@@ -18,8 +18,6 @@ export class PostCardComponent implements OnInit {
   ngOnInit() {
     this._postService.getPosts().subscribe(posts => {
     this.allpost = posts;
-      // console.log("This is allpost from components")
-      // console.log(this.allpost);
     });
 
   }
@@ -27,7 +25,6 @@ export class PostCardComponent implements OnInit {
   updateUpvotes(index: number) {
     let postToUpdate: Post = this.allpost[index];
     postToUpdate.upvotes = postToUpdate.upvotes + 1;
-    //console.log(postToUpdate);
     this._postService.updateUpvotes(postToUpdate, postToUpdate._id)
       .subscribe(res => { console.log("Updated"); });
 
