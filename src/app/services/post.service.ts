@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Post } from '../models/post.model';
@@ -24,6 +24,7 @@ export class PostService {
       .pipe(
         catchError(this.errorHandler)
       );
+
   }
   updateUpvotes(_post: Post, id: String): Observable<Post[]> {
     return this.http.put<Post[]>(this._postsAPIUrl + id, _post)

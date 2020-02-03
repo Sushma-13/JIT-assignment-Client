@@ -1,4 +1,19 @@
 <form class="form-inline my-2 mb-3 mx-auto" style="width: 18rem;" #postForm="ngForm" (submit)="onSubmit(postForm)">
     <input class="form-control mr-sm-2" type="text" placeholder="write here..." name="text" ngModel>
     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Post</button>
+
 </form>
+
+
+<div class="card mb-3 mx-auto" *ngFor="let post of allpost;let i = index">
+    <div class="card-body">
+        <p class="card-text">{{post.text}}</p>
+
+        <span class="card-text" style="float: left;"><small class="text-muted">{{post.datetime}}</small></span>
+
+        <span style="float: right;">
+            <small class="text-muted">upvote {{post.upvotes}}</small>
+            <i class="fa fa-arrow-up ml-2" (click)="updateUpvotes(i)"></i>  
+        </span>
+    </div>
+</div>
