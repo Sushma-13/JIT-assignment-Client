@@ -4,16 +4,20 @@
 
 </form>
 
+<div *ngIf="allpost.length>0">
+    <div class="card mb-3 mx-auto" *ngFor="let post of allpost;let i = index">
+        <div class="card-body">
+            <p class="card-text">{{post.text}}</p>
 
-<div class="card mb-3 mx-auto" *ngFor="let post of allpost;let i = index">
-    <div class="card-body">
-        <p class="card-text">{{post.text}}</p>
+            <span class="card-text" style="float: left;"><small class="text-muted">{{post.datetime}}</small></span>
 
-        <span class="card-text" style="float: left;"><small class="text-muted">{{post.datetime}}</small></span>
-
-        <span style="float: right;">
-            <small class="text-muted">upvote {{post.upvotes}}</small>
-            <i class="fa fa-arrow-up ml-2" (click)="updateUpvotes(i)"></i>  
-        </span>
+            <span style="float: right;">
+                <small class="text-muted">upvote {{post.upvotes}}</small>
+                <i class="fa fa-arrow-up ml-2" (click)="updateUpvotes(i)"></i>  
+            </span>
+        </div>
     </div>
+</div>
+<div *ngIf="allpost.length<=0">
+    <p>No Posts yet</p>
 </div>

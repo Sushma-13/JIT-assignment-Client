@@ -17,10 +17,13 @@ export class WritePostComponent implements OnInit {
   }
 
   allpost: Post[];
+  isloading:boolean;
 
   getAllPosts() {
+    this.isloading=true;
     this._postService.getPosts().subscribe(posts => {
       this.allpost = posts.reverse();
+      this.isloading=false;
     });
 
   }
