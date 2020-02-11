@@ -4,6 +4,10 @@
 
 </form>
 
+<div *ngIf="isloading" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+
 <div *ngIf="allpost.length>0">
     <div class="card mb-3 mx-auto" *ngFor="let post of allpost;let i = index">
         <div class="card-body">
