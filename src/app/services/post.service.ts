@@ -9,7 +9,7 @@ import { Post } from '../models/post.model';
   providedIn: 'root'
 })
 export class PostService {
-  private _postsAPIUrl = "http://localhost:3000/posts/";
+  private _postsAPIUrl = "https://stark-reaches-84198.herokuapp.com/posts/";
 
   constructor(private http: HttpClient) { }
 
