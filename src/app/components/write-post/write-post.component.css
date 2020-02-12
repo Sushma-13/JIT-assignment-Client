@@ -16,6 +16,7 @@
     color: #f542b9;
 }
 
-.alert {
-    width: 8rem;
+.spinner-border {
+    margin-top: 100px;
+    margin-left: 50%;
 }
